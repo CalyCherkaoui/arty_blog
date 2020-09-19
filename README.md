@@ -33,7 +33,9 @@ Home page with two scenarios : When user is Loged-in and when not:
 - simple_form
 - rubocop
 
-## Models
+## Data Models
+
+<img src="docs/erd.jpeg">
 
 ## Development : Getting started
 
