@@ -14,7 +14,7 @@ module Authors
   
     # GET /articles/new
     def new
-      @article = Article.new
+      @article = current_author.articles.build
     end
   
     # GET /articles/1/edit
@@ -23,7 +23,7 @@ module Authors
   
     # POST /articles
     def create
-      @article = Article.new(article_params)
+      @article = current_author.articles.build(article_params)
   
       if @article.save
         redirect_to @article, notice: 'Article was successfully created.'
