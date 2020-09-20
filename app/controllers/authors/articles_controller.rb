@@ -5,7 +5,7 @@ module Authors
   
     # GET /articles
     def index
-      @articles = current_author.posts
+      @articles = current_author.articles
     end
   
     # GET /articles/1
