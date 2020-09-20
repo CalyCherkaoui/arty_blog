@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_19_185527) do
+ActiveRecord::Schema.define(version: 2020_09_19_233108) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "published"
+    t.datetime "published_at"
+    t.integer "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,4 +35,15 @@ ActiveRecord::Schema.define(version: 2020_09_19_185527) do
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true
   end
 
+  create_table "elements", force: :cascade do |t|
+    t.string "element_type"
+    t.integer "article_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_elements_on_article_id"
+  end
+
+  add_foreign_key "articles", "authors"
+  add_foreign_key "elements", "articles"
 end
