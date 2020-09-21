@@ -21,7 +21,16 @@
     <%= form_with(model: [@article, @paragraph]) do |f| %>
       <%= f.hidden_field :element_type, value: 'paragraph' %>
       <%= f.submit "add paragraph" %>
-
     <% end %>
+
+    <% @article.elements.each do |element| %>
+      <% if element.persisted? %>
+        <p><%= element.content %></p>
+        <%= form_with(model: [@article, element]) do |f| %>
+          <%= f.rich_text_area :content %>
+          <%= f.submit "save changes in element"%>
+        <% end %>
+      <% end %>
+    <%end %>
   </div>
 </section>
