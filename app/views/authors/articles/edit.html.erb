@@ -18,6 +18,10 @@
   </div>
 
   <div class="creating_elements">
-    Elements
+    <%= form_with(model: [@article, @paragraph]) do |f| %>
+      <%= f.hidden_field :element_type, value: 'paragraph' %>
+      <%= f.submit "add paragraph" %>
+
+    <% end %>
   </div>
 </section>

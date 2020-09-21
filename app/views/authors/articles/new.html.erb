@@ -1,21 +1,22 @@
 <h1>Adding New Article</h1>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back to articles', articles_path %>
 
-<section class="creating_article">
+<section class="editing_article">
 
-  <%= form_with(model: @article, local: true) do |form| %>
-    <%= errors_any_helper(@article) %>
+  <div class="updating_form">
+    <%= render 'form', article: @article %>
+  </div>
 
-    <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title %>
-    </div>
+  <div class="tool_box">
+    Add a paragraph
+    Add an image
+  </div>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
+  <div class="creating_elements">
+    Display Elements here
+  </div>
 
 
 </section>
+
