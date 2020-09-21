@@ -12,7 +12,8 @@ module ArticlesHelper
         (header_errors + list_errors)
       end
     else
-      content_tag(:h2, "Changes was succesfully saved!")
+      # content_tag(:h2, "Changes was succesfully saved!")
+      return
     end
   end
 

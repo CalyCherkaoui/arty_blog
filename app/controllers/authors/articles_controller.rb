@@ -19,14 +19,17 @@ module Authors
   
     # GET /articles/1/edit
     def edit
+      @paragraph = @article.elements.build(element_type: 'paragraph')
     end
   
     # POST /articles
     def create
+
       @article = current_author.articles.build(article_params)
+
   
       if @article.save
-        redirect_to @article, notice: 'Article was successfully created.'
+        redirect_to edit_article_path(@article), notice: 'Article was successfully created.'
       else
         render :new
       end
