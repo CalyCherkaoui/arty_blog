@@ -1,0 +1,82 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&family=Raleway&display=swap');
+
+/* Palette */
+/* palette 1 pinky: #ac8181  grey: #cfceca white: #f8f8ff blue-dark: #253d5b */
+/* palette 2 white: #FFFFFF   beige: #F4F1E0  red: #F14C38  blue_dark: #144955 */
+$my_dark_text: #1b2d38;
+$my_light_text: #cfceca;
+$my_title_colored: #da4221;
+$my_light_backround: #fffafa;
+
+/* colors */
+$my_white: white;
+$my_pinky: #ac8181;
+$my_light: #f8f8ff;
+$my_blue_dark: #253d5b;
+$my_orange: #da4221;
+
+
+/* Typography*/
+$my_big_title: 'Abril Fatface', cursive, 'Open Sans', sans-serif;
+$my_ordinary_text: 'Open Sans', sans-serif;
+$my_second_title:  'Raleway', sans-serif;
+
+/* global */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  min-width: 22rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: $my_light_backround;
+  width: 100%;
+  min-width: 22rem;
+  display: block;
+}
+
+/* Authors : Article */
+
+.authors {
+  .editing_article {
+    background-color: #da4221;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: [row1-start] auto [row1-end row2-start] auto [row2-end];
+    column-gap: 2rem;
+    row-gap: 2rem;
+    grid-template-areas:
+      "update create"
+      "tool create";
+  }
+
+  .updating_form {
+    background-color: aqua;
+    grid-area: update;
+    padding: 0;
+  }
+
+  .tool_box {
+    background-color: burlywood;
+    grid-area: tool;
+    border: 3px dashed $my_orange;
+    border-radius: 10px;
+  }
+
+  .creating_elements {
+    background-color: $my_white;
+    grid-area: create;
+  }
+}
